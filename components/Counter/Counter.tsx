@@ -1,6 +1,6 @@
-"use client";
-import React, { useState } from "react";
-import styles from "./styles.module.css";
+'use client';
+import React, { useState } from 'react';
+import styles from './styles.module.css';
 
 interface CounterProps {
   initialCount?: number;
@@ -19,11 +19,17 @@ function Counter({ initialCount = 99 }: CounterProps) {
 
   return (
     <div className={styles.counter}>
-      <button className={styles.btn} onClick={decrement}>
+      <button
+        className={styles.btn}
+        onClick={decrement}
+      >
         -
       </button>
       <span className={styles.count}>{count}</span>
-      <button className={styles.btn} onClick={increment}>
+      <button
+        className={styles.btn}
+        onClick={increment}
+      >
         +
       </button>
     </div>
