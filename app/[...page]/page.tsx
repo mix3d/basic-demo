@@ -7,11 +7,11 @@ import { Footer } from '@/components/footer/Footer';
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 export default async function Page(props: {
-  params: {
+  params: Promise<{
     page: string[];
-  };
+  }>;
 }) {
-  const path = props?.params?.page?.join('/') || '';
+  const path = (await props?.params)?.page?.join('/') || '';
   const builderModelName = path === 'symbol' ? 'symbol' : 'page';
 
   const content = await builder
