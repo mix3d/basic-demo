@@ -6,13 +6,11 @@ import { Footer } from '@/components/footer/Footer';
 // Builder Public API Key set in .env file
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
-interface PageProps {
+export default async function Page(props: {
   params: {
     page: string[];
   };
-}
-
-export default async function Page(props: PageProps) {
+}) {
   const path = props?.params?.page?.join('/') || '';
   const builderModelName = path === 'symbol' ? 'symbol' : 'page';
 
