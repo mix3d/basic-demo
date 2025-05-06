@@ -1,0 +1,113 @@
+.synthwaveContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.grid {
+  position: absolute;
+  bottom: 0;
+  width: 150%;
+  height: 100%;
+  background-size: 50px 50px;
+  background-position-y: 0px;
+  transform: rotateX(60deg) translateZ(0) translateY(50%);
+  animation: gridMove 15s linear infinite;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.sun {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 50px #ff8a00,
+    0 0 100px #ff0080;
+  z-index: 1;
+}
+
+.mountains {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  z-index: 2;
+}
+
+.mountain {
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  background: linear-gradient(to top, #1a0033, #3d0066);
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  transform: translateX(-50%);
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #ffffff, rgba(0, 0, 0, 0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+.flickerAnimation {
+  animation: textFlicker 4s infinite alternate;
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 50px;
+  }
+}
+
+@keyframes textFlicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    background-size: 30px 30px;
+  }
+
+  .sun {
+    width: 200px;
+    height: 200px;
+  }
+}
